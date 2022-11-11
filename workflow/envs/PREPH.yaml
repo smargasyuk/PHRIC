@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - coreutils =9.1
+  - python =2.7.15
+  - numpy =1.16.5
+  - parallel =20220922
+

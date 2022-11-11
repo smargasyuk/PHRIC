@@ -1,0 +1,6 @@
+configfile: "config/config.yaml"
+
+include: "rules/common.smk"
+include: "rules/nested.smk"
+
+
