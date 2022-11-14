@@ -1,0 +1,8 @@
+.ipynb_checkpoints/*
+.snakemake/*
+.tmp/*
+*~lock*
+*.ipynb
+config/samples.tsv
+resources/
+results/
