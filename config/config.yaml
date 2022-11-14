@@ -1,1 +1,15 @@
-foo: bar
+# path to sample sheet relative to workflow folder
+samples: config/samples.tsv
+
+
+distances:
+  cluster: 10
+  nested_pass1:
+    rmin: 10
+    rmax: 100
+  nested_pass2:
+    rmin: 20
+    rmax: 50
+
+min_contact_support: 8
+max_energy: -15
