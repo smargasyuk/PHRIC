@@ -89,10 +89,6 @@ rule table_postprocess:
         max_energy = config['max_energy']
     run:
         t0 = pd.read_table(str(input), header=None)
-        t1 = t0.drop(columns=31)
-        t1.columns = S16_columns
-        t1 = t1.loc[t1.energy < params.max_energy].copy()
-        t1['handle1_seq'] = t1.apply(lambda r: foldint_subseq(r['fold_interval_1_seq'], r['handle1_coord']), axis=1)
-        t1['handle2_seq'] = t1.apply(lambda r: foldint_subseq(r['fold_interval_2_seq'], r['handle2_coord']), axis=1)
-        t1.to_csv(str(output.tsv), index=None, sep='\t')
-        t1.to_csv(str(output.bed), index=None, sep='\t', header=None)
+        t3 = postprocess_preph_table(t0)
+        t3.to_csv(str(output.tsv), index=None, sep='\t')
+        t3.to_csv(str(output.bed), index=None, sep='\t', header=None)
