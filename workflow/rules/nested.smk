@@ -16,14 +16,14 @@ sort-bed {output.bed1} | starch -  > {output.starch}
 
 
 rule add_file_info:
-    input: "resources/RNAcontacts-output/{genome}/{project}/junctions/{sample}/{t}.tsv"
+    input: "resources/RNAcontacts-output/{genome}/{project}/junctions/{sample}/{t}.tsv.gz"
     output:
-        'results/{genome}/S0/{sample}_{t}.tsv.gz'
+        'results/{genome}/S0/{project}/{sample}/{t}.tsv.gz'
     conda: "../envs/common.yaml"
     shell: """
 mkdir -p $(dirname {output})
 unpigz -c {input} |\
-awk -v 'OFS=\t' '{{print $0,"{wildcards.sample}","{wildcards.t}"}}' |\
+awk -v 'OFS=\t' '{{print $0,"{wildcards.project}","{wildcards.sample}","{wildcards.t}"}}' |\
 pigz - > {output}    
 """
 

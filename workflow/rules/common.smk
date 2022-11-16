@@ -25,9 +25,7 @@ samples = (
 
 def get_junctions(wildcards):
     relevant_samples = samples.loc[(samples.genome == wildcards["genome"]) & (samples.treatment == "experiment")]
-    return [f"resources/RNAcontacts-output/{wildcards['genome']}/{r.project}/junctions/{r.sample_name}/{jtype}.tsv.gz"
-        for r in relevant_samples.itertuples()
-        for jtype in ["Neo", "Chimeric"]]
+    return [f'results/{wildcards["genome"]}/S0/{r.project}/{r.sample_name}/{jtype}.tsv.gz' for r in relevant_samples.itertuples() for jtype in ["Neo", "Chimeric"]]
 
 
 def get_chroms(wildcards):
