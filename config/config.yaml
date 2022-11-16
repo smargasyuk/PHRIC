@@ -1,15 +1,23 @@
 # path to sample sheet relative to workflow folder
 samples: config/samples.tsv
 
-
+# distance parameters
 distances:
+  # maximum distance between junction points to be clustered together
   cluster: 10
+  # minimum and maximum distance between nested contacts for the first pass
+  # Changing it will require to recalculate most of the pipeline,
+  # so select relaxed values here.
   nested_pass1:
     rmin: 10
     rmax: 100
+  # minimum and maximum distance between nested contacts for the second pass. 
+  # Should be stricter than the pass1 parameters
   nested_pass2:
     rmin: 20
     rmax: 50
 
+# Contacts with lower support are removed
 min_contact_support: 8
+# Complementary regions with higher energy are removed 
 max_energy: -15
