@@ -3,6 +3,7 @@ configfile: "config/config.yaml"
 include: "rules/common.smk"
 include: "rules/nested.smk"
 include: "rules/fold.smk"
+include: "rules/test.smk"
 
 rule all:
     input: get_all_outputs
