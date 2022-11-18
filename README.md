@@ -63,6 +63,7 @@ snakemake --use-conda --configfile config/test_config.yaml -c8 test
 
 The rule will execute the pipeline for toy dataset (RIC-seq data for `chr21`) and the output files in `results/test_hg19/S16.tsv` will be compared to reference version.
 
+
 #### Run on full RIC-seq data
 
 PHRIC pipeline starts from the compressed intermediate output of [RNAcontacts](https://github.com/smargasyuk/RNAcontacts.git) pipeline. Run the RNAcontacts pipeline on some RIC-seq data (we have used [GSE190214](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE190214)) and copy or softlink its output, `resources` folder, to `resources/RNAcontacts-output` of this pipeline. Then put the same sample sheet used in RNAcontacts (described in [Settings](config/README.md)) to `config/samples.tsv` and run PHRIC pipeline.
