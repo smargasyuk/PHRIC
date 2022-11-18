@@ -4,5 +4,4 @@
 *~lock*
 *.ipynb
 config/samples.tsv
-resources/
 results/

@@ -2,6 +2,7 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
+  - openssl =1.0.2u
   - coreutils =9.1
   - gawk =5.1.0
   - pigz =2.6

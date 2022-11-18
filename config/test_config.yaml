@@ -1,0 +1,2 @@
+# path to sample sheet relative to workflow folder
+samples: config/test_samples.tsv

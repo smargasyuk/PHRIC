@@ -55,7 +55,14 @@ See the [Snakemake documentation](https://snakemake.readthedocs.io/en/stable/exe
 
 #### Test run
 
-TBA
+To make a test run, type
+
+```
+snakemake --use-conda --configfile config/test_config.yaml -c8 test
+```
+
+The rule will execute the pipeline for toy dataset (RIC-seq data for `chr21`) and the output files in `results/test_hg19/S16.tsv` will be compared to reference version.
+
 
 #### Run on full RIC-seq data
 
