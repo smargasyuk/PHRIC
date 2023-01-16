@@ -56,12 +56,14 @@ rule PrePH:
         seq_R = 'results/{genome}/S12R.fa',
     output: 'results/{genome}/S14_PrePH.tsv'
     conda: "../envs/PrePH.yaml"
+    params:
+        max_energy = config['max_energy']
     threads: 16
     shell: """
-paste -d '\n' <(grep -v '>' {input.seq_L}) <(grep -v '>' {input.seq_R}) |\
-grep -v "^$" |  xargs -n2 |\
-parallel 2>/dev/null --keep-order -j{threads} --colsep ' ' "python workflow/scripts/PrePH/src/fold_SM.py -f {{1}} -s {{2}} \
--k 3 -a 3 -e -1 -u False -d 2" > {output}   
+paste  <(grep -v '>' {input.seq_L}) <(grep -v '>' {input.seq_R}) |\
+grep -v "^$" |\
+python workflow/scripts/PrePH/src/fold2.py -e {params.max_energy} -a 8 -u False -j{threads} \
+> {output}
 """
 
 rule merge_w_preph_results:
@@ -85,8 +87,6 @@ rule table_postprocess:
     output: 
         bed = 'results/{genome}/S16.bed',
         tsv = 'results/{genome}/S16.tsv'
-    params:
-        max_energy = config['max_energy']
     run:
         t0 = pd.read_table(str(input), header=None)
         t3 = postprocess_preph_table(t0)
