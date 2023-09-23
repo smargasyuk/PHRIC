@@ -11,3 +11,9 @@ rule test:
                 print(f"Files {f1} and {f2} are different")
                 raise ValueError
         print("Test passed")
+
+
+rule clean_test:
+    shell: """
+rm -rf results/test_hg19/
+"""
