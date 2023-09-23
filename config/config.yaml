@@ -14,7 +14,7 @@ distances:
   # minimum and maximum distance between nested contacts for the second pass. 
   # Should be stricter than the pass1 parameters
   nested_pass2:
-    rmin: 20
+    rmin: 10
     rmax: 50
 
 # Contacts with read support less than or equal to this are removed
