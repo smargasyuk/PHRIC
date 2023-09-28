@@ -57,12 +57,12 @@ rule PrePH:
     output: 'results/{genome}/S14_PrePH.tsv'
     conda: "../envs/PrePH.yaml"
     params:
-        max_energy = config['max_energy']
+        preph_parameters = config['preph_parameters']
     threads: 16
     shell: """
 paste  <(grep -v '>' {input.seq_L}) <(grep -v '>' {input.seq_R}) |\
 grep -v "^$" |\
-python workflow/scripts/PrePH/src/fold2.py -e {params.max_energy} -a 8 -u False -j{threads} \
+python workflow/scripts/PrePH/src/fold2.py {params.preph_parameters} -j{threads} \
 > {output}
 """
 

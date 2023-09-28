@@ -14,10 +14,11 @@ distances:
   # minimum and maximum distance between nested contacts for the second pass. 
   # Should be stricter than the pass1 parameters
   nested_pass2:
-    rmin: 20
+    rmin: 10
     rmax: 50
 
-# Contacts with lower support are removed
-min_contact_support: 8
-# Complementary regions with higher energy are removed 
-max_energy: -15
+# Contacts with read support less than or equal to this are removed
+min_contact_support: 2
+# options for PrePH structure prediction
+#see [kalmSveta/PrePH](https://github.com/kalmSveta/PrePH#find-pairs-of-complementary-regions-in-two-sequences) for `fold.py` parameters description
+preph_parameters: "-k 3 -a 3 -e -1 -u False -d 2"

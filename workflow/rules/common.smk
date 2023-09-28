@@ -18,7 +18,7 @@ S16_columns = S16_bed12_columns + S16_other_columns
 
 samples = (
     pd.read_csv(config["samples"], sep="\t")
-    .applymap(lambda x: x.strip() if isinstance(x, str) else x)
+    .apply(lambda x: x.strip() if isinstance(x, str) else x)
     .set_index("sample_name", drop=False)
 )
 
