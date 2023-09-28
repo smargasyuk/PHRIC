@@ -61,7 +61,7 @@ To make a test run, type
 snakemake --use-conda --configfile config/test_config.yaml -c8 test
 ```
 
-The rule will execute the pipeline for toy dataset (RIC-seq data for `chr21`) and the output files in `results/test_hg19/S16.tsv` will be compared to reference version. The comparison is a Snakemake rule, so the correct completion of the test is indicated by a Snakemake success message (`.... of ... steps (100%) completed' in green text), and a test failure is indicated by a Snakemake error message in red text.
+The rule will execute the pipeline for toy dataset (RIC-seq data for `chr21`) and the output files in `results/test_hg19/S16.tsv` will be compared to reference version. The comparison is a Snakemake rule, so the correct completion of the test is indicated by a Snakemake success message (`.... of ... steps (100%) completed` in green text), and a test failure is indicated by a Snakemake error message in red text.
 
 
 #### Run on full RIC-seq data
